@@ -1,8 +1,8 @@
-
+// plugins/numbers.js
 
 const axios = require('axios');
-const { arslan } = require("../arslan");
-const config = require('../settings');
+const { cmd } = require("../command");
+const config = require('../config');
 
 const ALLOWED_GROUP = config.ALLOWED_GROUP || '120363402417860683@g.us';
 const POLL_INTERVAL = 3000;
@@ -105,7 +105,7 @@ function maskNumber(number) {
 // ======================================================================
 // 📱 MAIN COMMAND: .numbers
 // ======================================================================
-arslan({
+cmd({
   pattern: 'numbers',
   desc: 'Get live numbers by country code',
   category: 'main',
@@ -199,4 +199,4 @@ ${FOOTER}`;
   }, POLL_INTERVAL);
 
   watchers.set(groupId, { interval, seen });
-      }
+}
